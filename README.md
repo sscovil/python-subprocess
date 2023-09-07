@@ -25,7 +25,7 @@ OK
 ```shell
 $ python -m src.example.runner
 
-Running tests using asyncio.run...
+Running tests using asyncio.create_subprocess_exec...
 
 ----------------------------------------------------------------------
 Ran 0 tests in 0.000s
@@ -60,7 +60,7 @@ OK
 ```
 
 Note that the `unittest.defaultTestLoader` test runner works as expected, because it is explicitly using the `unittest`
-module to run the other tests. However, when running tests using `asyncio.run`, `subprocess.Popen`, or `subprocess.run`,
+module to run the other tests. However, when running tests using `asyncio.create_subprocess_exec`, `subprocess.Popen`, or `subprocess.run`,
 as if using the CLI from the command line, the tests are not auto-discovered.
 
 ## Different Python Versions
