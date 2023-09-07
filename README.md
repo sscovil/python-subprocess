@@ -3,6 +3,8 @@
 This code demonstrates an issue I noticed with Python's `unittest` module when running tests programmatically via a
 subprocess (e.g. `subprocess.Popen()`, `subprocess.run()`, `asyncio.create_subprocess_exec()`).
 
+See also: https://stackoverflow.com/questions/77061446/why-does-python-unittest-auto-discovery-not-work-when-running-in-a-subprocess
+
 ## Expected Behavior
 
 When running tests from the command line, Python's `unittest` module auto-discovers tests in the `test` directory:

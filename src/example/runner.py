@@ -62,7 +62,7 @@ def unittest_discover() -> unittest.TestResult:
 
 def main():
     """Runs the example."""
-    print("\nRunning tests using asyncio.run...\n")
+    print("\nRunning tests using asyncio.create_subprocess_exec...\n")
     asyncio.run(async_exec(UNIT_TEST_CMD))
 
     print("\nRunning tests using subprocess.Popen...\n")
