@@ -5,6 +5,11 @@ subprocess (e.g. `subprocess.Popen()`, `subprocess.run()`, `asyncio.create_subpr
 
 See also: https://stackoverflow.com/questions/77061446/why-does-python-unittest-auto-discovery-not-work-when-running-in-a-subprocess
 
+**UPDATE:** See the [solution](https://github.com/sscovil/python-subprocess/tree/solution) branch for a working version,
+based on [this answer](https://stackoverflow.com/questions/77061446/why-does-python-unittest-auto-discovery-not-work-when-running-in-a-subprocess/77062750#77062750).
+TL;DR is that the quotes around the `*_test.py` pattern were not getting stripped, which created a pattern that no test
+files matched. :-/
+
 ## Expected Behavior
 
 When running tests from the command line, Python's `unittest` module auto-discovers tests in the `test` directory:
