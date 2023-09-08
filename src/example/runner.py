@@ -6,14 +6,15 @@ import unittest
 from subprocess import CompletedProcess, PIPE
 from typing import Final, List
 
-UNIT_TEST_CMD: Final[str] = "python -m unittest discover test '*_test.py' --locals -b -c -f"
+UNIT_TEST_CMD: Final[str] = "python -m unittest discover test *_test.py --locals -bcf"
 
 
 def _parse_cmd(cmd: str) -> List[str]:
-    """Helper function that splits a command string into a list of arguments with a full path to the executable."""
+    """Parses a command string into a list of arguments, using the full path to the executable."""
     args: List[str] = cmd.split(" ")
-    args[0] = shutil.which(args[0])
-    return args
+    executable: str = args.pop(0) if " " in cmd else cmd
+    full_exec_path: str = shutil.which(executable)
+    return [full_exec_path, *args]
 
 
 async def async_exec(cmd: str, *args, **kwargs) -> int:
